@@ -5,15 +5,15 @@ import 'package:flutter/material.dart';
 /// - you can also include other buttons in the row
 class CustButtonWidget extends StatefulWidget {
   final String text;
-  final Color? btnColor;
-  final Color? textColor;
+  final Color btnColor;
+  final Color textColor;
   final bool? loading;
 
   CustButtonWidget({
     Key? key,
     required this.text,
-    @required this.btnColor,
-    @required this.textColor,
+    required this.btnColor,
+    required this.textColor,
     this.loading,
   }) : super(key: key);
   @override
@@ -58,7 +58,7 @@ class _CustButtonWidgetState extends State<CustButtonWidget> {
 //           textColor: Colors.white,
 //         ),
 //         onTap: () {
-//
+//           
 //         },
 //       ),
 //     ),
