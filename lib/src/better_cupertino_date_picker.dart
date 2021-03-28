@@ -1035,36 +1035,30 @@ class _CupertinoDatePickerDateTimeState extends State<BetterCupertinoDatePicker>
       ));
     }
 
+    pickers.add(
+      ElevatedButton(
+        onPressed: () {
+          final DateTime selected = selectedDateTime;
+
+          widget.onSubmit(selected);
+        },
+        child: Text('Submit'),
+        style: ButtonStyle(
+
+        ),
+      ),
+    );
+
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
       child: DefaultTextStyle.merge(
         style: _kDefaultPickerTextStyle,
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height / 3.5,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              CustomMultiChildLayout(
-                delegate: _DatePickerLayoutDelegate(
-                  columnWidths: columnWidths,
-                  textDirectionFactor: textDirectionFactor,
-                ),
-                children: pickers,
-              ),
-              ElevatedButton(
-                  onPressed: () {
-                    final DateTime selected = selectedDateTime;
-
-                    widget.onSubmit(selected);
-              },
-                  child: Text('Submit'),
-                style: ButtonStyle(
-
-                ),
-              ),
-            ],
+        child: CustomMultiChildLayout(
+          delegate: _DatePickerLayoutDelegate(
+            columnWidths: columnWidths,
+            textDirectionFactor: textDirectionFactor,
           ),
+          children: pickers,
         ),
       ),
     );
