@@ -1040,6 +1040,8 @@ class _CupertinoDatePickerDateTimeState extends State<BetterCupertinoDatePicker>
       child: DefaultTextStyle.merge(
         style: _kDefaultPickerTextStyle,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
             CustomMultiChildLayout(
               delegate: _DatePickerLayoutDelegate(
