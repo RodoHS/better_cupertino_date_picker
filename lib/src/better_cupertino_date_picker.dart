@@ -1039,7 +1039,7 @@ class _CupertinoDatePickerDateTimeState extends State<BetterCupertinoDatePicker>
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
       child: DefaultTextStyle.merge(
         style: _kDefaultPickerTextStyle,
-        child: Container(
+        child: SizedBox(
           height: MediaQuery.of(context).size.height / 3.5,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -1052,23 +1052,16 @@ class _CupertinoDatePickerDateTimeState extends State<BetterCupertinoDatePicker>
                 ),
                 children: pickers,
               ),
-              Row(
-                children: [
-                  Expanded(
-                    child: GestureDetector(
-                      child: CustButtonWidget(
-                        text: 'Submit',
-                        btnColor: CupertinoColors.systemBlue,
-                        textColor: CupertinoColors.white,
-                      ),
-                      onTap: () {
-                        final DateTime selected = selectedDateTime;
+              ElevatedButton(
+                  onPressed: () {
+                    final DateTime selected = selectedDateTime;
 
-                        widget.onSubmit(selected);
-                      },
-                    ),
-                  ),
-                ],
+                    widget.onSubmit(selected);
+              },
+                  child: Text('Submit'),
+                style: ButtonStyle(
+
+                ),
               ),
             ],
           ),
