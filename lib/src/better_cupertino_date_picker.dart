@@ -1039,36 +1039,39 @@ class _CupertinoDatePickerDateTimeState extends State<BetterCupertinoDatePicker>
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
       child: DefaultTextStyle.merge(
         style: _kDefaultPickerTextStyle,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            CustomMultiChildLayout(
-              delegate: _DatePickerLayoutDelegate(
-                columnWidths: columnWidths,
-                textDirectionFactor: textDirectionFactor,
-              ),
-              children: pickers,
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: GestureDetector(
-                    child: CustButtonWidget(
-                      text: 'Submit',
-                      btnColor: CupertinoColors.systemBlue,
-                      textColor: CupertinoColors.white,
-                    ),
-                    onTap: () {
-                      final DateTime selected = selectedDateTime;
-
-                      widget.onSubmit(selected);
-                    },
-                  ),
+        child: Container(
+          height: MediaQuery.of(context).size.height / 3.5,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CustomMultiChildLayout(
+                delegate: _DatePickerLayoutDelegate(
+                  columnWidths: columnWidths,
+                  textDirectionFactor: textDirectionFactor,
                 ),
-              ],
-            ),
-          ],
+                children: pickers,
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: GestureDetector(
+                      child: CustButtonWidget(
+                        text: 'Submit',
+                        btnColor: CupertinoColors.systemBlue,
+                        textColor: CupertinoColors.white,
+                      ),
+                      onTap: () {
+                        final DateTime selected = selectedDateTime;
+
+                        widget.onSubmit(selected);
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
